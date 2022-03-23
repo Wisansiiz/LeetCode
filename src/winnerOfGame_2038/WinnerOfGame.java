@@ -1,4 +1,4 @@
-package winnerOfGame2038_;
+package winnerOfGame_2038;
 
 public class WinnerOfGame {
 
