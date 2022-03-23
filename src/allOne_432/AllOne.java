@@ -5,14 +5,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-//public class AllOne {
-//
-//	public static void main(String[] args) {
-//		// TODO 自动生成的方法存根
-//
-//	}
-//
-//}
+
 class allOne {
     class Node {
         int cnt;
