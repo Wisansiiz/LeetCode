@@ -4,7 +4,7 @@ public class MaxConsecutiveAnswers {
 
 	public static void main(String[] args) {
 		// TODO 自动生成的方法存根
-		String answerKey = "FFTT";
+		String answerKey = "TTFF";
 		int k = 2;
 		System.out.println(new Solution().maxConsecutiveAnswers(answerKey, k));
 	}
