@@ -1,11 +1,11 @@
-package £íinWindo£÷_76;
+package minWindow_76;
 
 import java.util.HashMap;
 
 public class MinWindow {
 	
 	public static void main(String[] args) {
-		// TODO ×Ô¶¯Éú³ÉµÄ·½·¨´æ¸ù
+		// TODO ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ÉµÄ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		String s = "ADOBECODEBANC";
 		String t = "ABC";
 		System.err.println(new Solution().minWindow(s, t));
@@ -17,38 +17,38 @@ class Solution {
     	HashMap<Character, Integer> need = new HashMap<>();
     	HashMap<Character, Integer> window = new HashMap<>();
     	for (int i = 0; i < t.length(); i++) {
-    		//»ñÈ¡Ö¸¶¨µÄkey¶ÔÓ¦µÄ value Èç¹ûÕÒ²»µ½key Ôò·µ»ØÉèÖÃµÄÄ¬ÈÏÖµ
+    		//ï¿½ï¿½È¡Ö¸ï¿½ï¿½ï¿½ï¿½keyï¿½ï¿½Ó¦ï¿½ï¿½ value ï¿½ï¿½ï¿½ï¿½Ò²ï¿½ï¿½ï¿½key ï¿½ò·µ»ï¿½ï¿½ï¿½ï¿½Ãµï¿½Ä¬ï¿½ï¿½Öµ
             need.put(t.charAt(i),need.getOrDefault(t.charAt(i),0)+1);
         }
         int left = 0, right = 0;
         int valid = 0;
-        // ¼ÇÂ¼×îÐ¡¸²¸Ç×Ó´®µÄÆðÊ¼Ë÷Òý¼°³¤¶È
+        // ï¿½ï¿½Â¼ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½Ó´ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         int start = 0, len = Integer.MAX_VALUE;
         while (right < s.length()) {
-            // c ÊÇ½«ÒÆÈë´°¿ÚµÄ×Ö·û
+            // c ï¿½Ç½ï¿½ï¿½ï¿½ï¿½ë´°ï¿½Úµï¿½ï¿½Ö·ï¿½
             char c = s.charAt(right);
-            // ÓÒÒÆ´°¿Ú
+            // ï¿½ï¿½ï¿½Æ´ï¿½ï¿½ï¿½
             right++;
-            // ½øÐÐ´°¿ÚÄÚÊý¾ÝµÄÒ»ÏµÁÐ¸üÐÂ
+            // ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ýµï¿½Ò»Ïµï¿½Ð¸ï¿½ï¿½ï¿½
             if (need.containsKey(c)) {
-            	//½«µ±Ç°char c ´æÈë¶ÔÓ¦µÄwindowÎ»ÖÃ
+            	//ï¿½ï¿½ï¿½ï¿½Ç°char c ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½windowÎ»ï¿½ï¿½
             	window.put(c,window.getOrDefault(c,0)+1);
                 if (window.get(c).equals(need.get(c)))
                     valid++;
             }
 
-            // ÅÐ¶Ï×ó²à´°¿ÚÊÇ·ñÒªÊÕËõ
+            // ï¿½Ð¶ï¿½ï¿½ï¿½à´°ï¿½ï¿½ï¿½Ç·ï¿½Òªï¿½ï¿½ï¿½ï¿½
             while (valid == need.size()) {
-                // ÔÚÕâÀï¸üÐÂ×îÐ¡¸²¸Ç×Ó´®
+                // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½Ó´ï¿½
                 if (right - left < len) {
                     start = left;
                     len = right - left;
                 }
-                // d ÊÇ½«ÒÆ³ö´°¿ÚµÄ×Ö·û
+                // d ï¿½Ç½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½Ö·ï¿½
                 char d = s.charAt(left);
-                // ×óÒÆ´°¿Ú
+                // ï¿½ï¿½ï¿½Æ´ï¿½ï¿½ï¿½
                 left++;
-                // ½øÐÐ´°¿ÚÄÚÊý¾ÝµÄÒ»ÏµÁÐ¸üÐÂ
+                // ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ýµï¿½Ò»Ïµï¿½Ð¸ï¿½ï¿½ï¿½
                 if (need.containsKey(d)) {
                     if (window.get(d).equals(need.get(d)))
                         valid--;
@@ -56,7 +56,7 @@ class Solution {
                 }                    
             }
         }
-        // ·µ»Ø×îÐ¡¸²¸Ç×Ó´®
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½Ó´ï¿½
         return len == Integer.MAX_VALUE ? "" : s.substring(start, start + len);
     }
 }
